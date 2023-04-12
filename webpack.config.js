@@ -5,13 +5,11 @@ module.exports = {
   mode: 'development',
   entry: './src/index.js',
 
-
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
   ],
-
 
   module: {
     rules: [
@@ -21,7 +19,6 @@ module.exports = {
       },
     ],
   },
-
 
   output: {
     filename: 'main.js',
