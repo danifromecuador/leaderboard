@@ -1,25 +1,43 @@
-const print = () => {
-  // console.log('hello world');
 
-  const refreshBtn = document.querySelector('.refreshBtn');
-  refreshBtn.addEventListener('click', () => {
-    // alert('refresh button');
-  });
 
+export const addYourData = () => {
   const inputName = document.querySelector('.inputName');
-  inputName.addEventListener('click', () => {
-    // alert('name');
-  });
-
   const inputScore = document.querySelector('.inputScore');
-  inputScore.addEventListener('click', () => {
-    // alert('score');
-  });
+  if (inputName !== '' && inputScore !== '') {
+    let dataToSend = {      
+      "user": inputName.value,
+      "score": parseInt(inputScore.value)
+    };
 
-  const submitBtn = document.querySelector('.submitBtn');
-  submitBtn.addEventListener('click', () => {
-    // alert('submit');
-  });
+    fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/SNypXgDAYR2s53JoVMhD/scores', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dataToSend)
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+  }
+  inputName.value = "";
+  inputScore.value = "";
 };
 
-export default print;
+export const createNewGame = async () => {
+  try {
+    const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: "my new gamez"
+      })
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+};

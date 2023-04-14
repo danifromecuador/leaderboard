@@ -1,6 +1,15 @@
 // import _ from 'lodash';
 // import './style.css';
+import { refresh, addYourData, createNewGame } from './modules/sendAndReceive.js';
 
-import print from './modules/sendAndReceive.js';
+const refreshBtn = document.querySelector('.refreshBtn');
+refreshBtn.addEventListener('click', () => {
+  refresh();
+});
 
-print();
+const submitBtn = document.querySelector('.submitBtn');
+submitBtn.addEventListener('click', () => {
+  addYourData();
+});
+
+window.onload = createNewGame();
