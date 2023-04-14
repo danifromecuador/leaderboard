@@ -52,12 +52,12 @@ export const getData = async () => {
   }
 };
 
-// export const refresh = async () => {
-//   const data = await getData();
-//   const scoreContainer = document.querySelector('.score-container');
-//   scoreContainer.innerHTML = '';
-//   for (let i = 0; i < data.result.length; i += 1) {
-//     const html = `<li>${data.result[i].user}: ${data.result[i].score}</li>`;
-//     scoreContainer.innerHTML += html;
-//   }
-// };
+export const refresh = async () => {
+  const data = await getData();
+  const scoreContainer = document.querySelector('.score-container');
+  scoreContainer.innerHTML = '';
+  for (let i = 0; i < data.result.length; i += 1) {
+    const html = `<li>${data.result[i].user}: ${data.result[i].score}</li>`;
+    scoreContainer.innerHTML += html;
+  }
+};
