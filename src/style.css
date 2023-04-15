@@ -1,3 +1,81 @@
-h1 {
-  color: red;
+* {
+  box-sizing: border-box;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  border: 1px solid black;
+}
+
+li {
+  padding: 5px 0 5px 5px;
+}
+
+li:nth-child(even) {
+  background-color: #ffd89d;
+}
+
+.refreshBtn,
+.submitBtn {
+  border: 1px solid black;
+  background-color: transparent;
+  padding: 5px;
+  cursor: pointer;
+}
+
+body {
+  margin: 0 auto;
+  padding: 20px;
+  width: 70%;
+  min-width: 762px;
+  max-width: 1080px;
+  font-family: 'Hanalei Fill', cursive;
+  background-color: bisque;
+}
+
+.main {
+  display: flex;
+  padding: 20px;
+
+  /* column-gap: 50px; */
+  justify-content: space-between;
+}
+
+.recentScores {
+  width: 60%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.refreshBtn,
+.submitBtn,
+.inputName,
+.inputScore {
+  font-family: 'Hanalei Fill', cursive;
+  background-color: transparent;
+}
+
+ul,
+form {
+  margin: 20px 0 0 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  row-gap: 20px;
+}
+
+.inputName,
+.inputScore {
+  width: 100%;
+  border: 1px solid black;
+  padding: 5px;
 }
